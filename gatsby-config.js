@@ -18,6 +18,12 @@ module.exports = {
         path: `${__dirname}/content/`,
       },
     },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [],
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-catch-links`,

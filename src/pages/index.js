@@ -1,3 +1,8 @@
-import React from "react"
+import React from 'react'
+import { Layout } from '../components'
 
-export default () => <div>Hello world!</div>
+const Index = () => {
+  return <Layout>Hello world!</Layout>
+}
+
+export default Index
