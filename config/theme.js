@@ -1,5 +1,10 @@
 import { createTheming } from '@callstack/react-theme-provider'
 
+const colors = {
+  white: '#ffffff',
+  black: '#000000',
+}
+
 const themes = {
   default: {
     themeName: 'default',
@@ -9,6 +14,7 @@ const themes = {
       body_title: '#24292e',
       link: '#368554',
       link_hover: '#296A43',
+      ...colors,
     },
   },
   dark: {
@@ -19,6 +25,7 @@ const themes = {
       body_title: '#ffffff',
       link: '#368554',
       link_hover: '#296A43',
+      ...colors,
     },
   },
 }

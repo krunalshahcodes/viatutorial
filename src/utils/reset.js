@@ -33,6 +33,8 @@ const reset = theme => {
     body {
       color: ${theme.colors.body_text};
       background-color: ${theme.colors.body_bg};
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
     ::selection {
       color: ${theme.colors.white};
