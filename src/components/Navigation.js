@@ -4,9 +4,7 @@ import ThemeToggler from './ThemeToggler'
 
 const Navigation = () => {
   const theme = useTheme()
-  return (
-    <ThemeToggler toggleTheme={theme.toggleTheme} themeName={theme.themeName} />
-  )
+  return <ThemeToggler toggleTheme={theme.toggleTheme} themeName={theme.themeName} />
 }
 
 export default Navigation

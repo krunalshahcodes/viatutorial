@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { Global } from '@emotion/core'
 import { ThemeProvider, themes } from '../../config/theme'
 import reset from '../utils/reset'
@@ -8,9 +9,8 @@ const Layout = ({ children }) => {
   const initializeTheme = () => {
     if (typeof window !== 'undefined') {
       return localStorage.getItem('theme') || 'default'
-    } else {
-      return 'default'
     }
+    return 'default'
   }
 
   const [themeName, setTheme] = useState(initializeTheme)
@@ -23,7 +23,7 @@ const Layout = ({ children }) => {
 
   const theme = {
     ...themes[themeName],
-    toggleTheme: toggleTheme,
+    toggleTheme,
   }
 
   return (
@@ -38,3 +38,7 @@ const Layout = ({ children }) => {
 }
 
 export default Layout
+
+Layout.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
+}
