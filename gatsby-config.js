@@ -25,21 +25,47 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-mdx`,
+      resolve: `gatsby-transformer-remark`,
       options: {
-        extensions: ['.mdx', '.md', '.markdown'],
-        gatsbyRemarkPlugins: [
-          { resolve: `gatsby-remark-copy-linked-files` },
+        plugins: [
+          `gatsby-remark-graphviz`,
+          `gatsby-remark-embed-video`,
+          `gatsby-remark-code-titles`,
           {
             resolve: `gatsby-remark-images`,
             options: {
-              backgroundColor: '#fafafa',
               maxWidth: 1035,
+              backgroundColor: `#ffffff`,
             },
           },
+          `gatsby-remark-autolink-headers`,
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              noInlineHighlight: true,
+            },
+          },
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-smartypants`,
         ],
       },
     },
+    // {
+    //   resolve: `gatsby-mdx`,
+    //   options: {
+    //     extensions: ['.mdx', '.md', '.markdown'],
+    //     gatsbyRemarkPlugins: [
+    //       {
+    //         resolve: `gatsby-remark-images`,
+    //         options: {
+    //           backgroundColor: '#fafafa',
+    //           maxWidth: 1035,
+    //         },
+    //       },
+    //       { resolve: `gatsby-remark-copy-linked-files` },
+    //     ],
+    //   },
+    // },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-catch-links`,

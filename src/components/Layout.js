@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { MDXProvider } from '@mdx-js/react'
 import { Global } from '@emotion/core'
-import mdxComponents from './mdx'
 import { ThemeProvider, themes } from '../../config/theme'
 import reset from '../utils/reset'
+import prism from '../utils/prism'
 import SEO from './SEO'
 import Navigation from './Navigation'
 
@@ -34,10 +33,9 @@ const Layout = ({ children, pathname, customSEO }) => {
       <>
         {!customSEO && <SEO pathname={pathname} />}
         <Global styles={reset(theme)} />
+        <Global styles={prism(theme)} />
         <Navigation />
-        <MDXProvider components={mdxComponents}>
-          <>{children}</>
-        </MDXProvider>
+        {children}
       </>
     </ThemeProvider>
   )

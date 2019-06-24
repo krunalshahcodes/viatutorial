@@ -43,7 +43,7 @@ const typography = new Typography({
   ],
   scaleRatio: 2.441,
   headerWeight: 700,
-  overrideStyles: ({ rhythm }) => ({
+  overrideStyles: () => ({
     img: {
       marginBottom: 0,
     },

@@ -7,6 +7,7 @@ import { bpMaxSM, bpMaxMD } from '../utils/breakpoints'
 
 const PostCard = ({ post }) => {
   const theme = useTheme()
+
   return (
     <article
       css={css`
@@ -66,6 +67,7 @@ PostCard.propTypes = {
     }).isRequired,
     frontmatter: PropTypes.shape({
       title: PropTypes.string.isRequired,
+      description: PropTypes.string,
     }).isRequired,
   }).isRequired,
 }
