@@ -63,8 +63,8 @@ const Navigation = () => {
             <NavLink to="/" activeClassName="active">
               Home
             </NavLink>
-            <NavLink to="/tags" activeClassName="active">
-              Tags
+            <NavLink to="/devops" activeClassName="active">
+              Devops
             </NavLink>
           </div>
           <ThemeToggler
