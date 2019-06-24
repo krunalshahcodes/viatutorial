@@ -25,9 +25,19 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-mdx`,
       options: {
-        plugins: [],
+        extensions: ['.mdx', '.md', '.markdown'],
+        gatsbyRemarkPlugins: [
+          { resolve: `gatsby-remark-copy-linked-files` },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              backgroundColor: '#fafafa',
+              maxWidth: 1035,
+            },
+          },
+        ],
       },
     },
     `gatsby-transformer-sharp`,
