@@ -67,7 +67,13 @@ const Navigation = () => {
               Tags
             </NavLink>
           </div>
-          <ThemeToggler toggleTheme={theme.toggleTheme} themeName={theme.themeName} />
+          <ThemeToggler
+            css={css`
+              background: ${theme.colors.link_hover};
+            `}
+            toggleTheme={theme.toggleTheme}
+            themeName={theme.themeName}
+          />
         </div>
       </Container>
     </div>

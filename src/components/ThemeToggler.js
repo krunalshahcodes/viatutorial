@@ -31,8 +31,7 @@ const ThemeToggler = ({ toggleTheme, themeName, ...props }) => {
         alignItems: 'center',
         justifyContent: 'center',
         margin: 0,
-        borderStyle: 'solid',
-        borderWidth: '1px',
+        border: 0,
         color: theme.colors.white,
         background: theme.colors.headerBg,
         '@media (hover: hover)': {

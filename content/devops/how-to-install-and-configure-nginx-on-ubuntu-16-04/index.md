@@ -8,8 +8,7 @@ banner: './images/how-to-install-nginx.jpg'
 tags:
   - ubuntu
   - nginx
-versions:
-  ubuntu: '16.04'
+roadmap: 1
 ---
 
 Nignx is a free, open-source, high-performanec HTTP server that powers some of the largest sites around the globle. It is more refource friendly and can be used as a web server or a reverse proxy.
