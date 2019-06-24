@@ -61,7 +61,7 @@ PostDetails.propTypes = {
     }).isRequired,
     frontmatter: PropTypes.shape({
       title: PropTypes.string.isRequired,
-      banner: PropTypes.array,
+      banner: PropTypes.object,
     }).isRequired,
     html: PropTypes.string,
   }).isRequired,

@@ -3,14 +3,15 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { css } from '@emotion/core'
 
-import { Layout, Container, PostDetails } from '../components'
+import { Layout, Container, SEO, PostDetails } from '../components'
 
 const Post = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const { prev, next } = pageContext
 
   return (
-    <Layout pathname={location.pathname}>
+    <Layout pathname={location.pathname} customSEO>
+      <SEO postNode={post} pathname={location.pathname} article />
       <Container>
         <div
           css={css`
