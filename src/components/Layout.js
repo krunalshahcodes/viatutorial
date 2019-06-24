@@ -5,9 +5,10 @@ import { Global } from '@emotion/core'
 import mdxComponents from './mdx'
 import { ThemeProvider, themes } from '../../config/theme'
 import reset from '../utils/reset'
+import SEO from './SEO'
 import Navigation from './Navigation'
 
-const Layout = ({ children }) => {
+const Layout = ({ children, pathname, customSEO }) => {
   const initializeTheme = () => {
     if (typeof window !== 'undefined') {
       return localStorage.getItem('theme') || 'default'
@@ -31,6 +32,7 @@ const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <>
+        {!customSEO && <SEO pathname={pathname} />}
         <Global styles={reset(theme)} />
         <Navigation />
         <MDXProvider components={mdxComponents}>
@@ -45,4 +47,10 @@ export default Layout
 
 Layout.propTypes = {
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
+  pathname: PropTypes.string.isRequired,
+  customSEO: PropTypes.bool,
+}
+
+Layout.defaultProps = {
+  customSEO: false,
 }
