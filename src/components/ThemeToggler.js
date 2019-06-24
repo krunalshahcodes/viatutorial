@@ -17,15 +17,15 @@ const DefaultMode = styled.div`
   margin: 0;
 `
 
-const ThemeToggler = ({ toggleTheme, themeName }) => {
+const ThemeToggler = ({ toggleTheme, themeName, ...props }) => {
   const theme = useTheme()
   return (
     <button
       type="button"
       css={{
         borderRadius: '50%',
-        width: '2.375rem',
-        height: '2.375rem',
+        width: '2rem',
+        height: '2rem',
         padding: 0,
         display: 'flex',
         alignItems: 'center',
@@ -43,6 +43,7 @@ const ThemeToggler = ({ toggleTheme, themeName }) => {
       }}
       aria-label={themeName === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
       onClick={() => toggleTheme(themeName === 'dark' ? 'default' : 'dark')}
+      {...props}
     >
       {themeName === 'dark' ? <DefaultMode title="Switch to light mode" /> : <DarkMode title="Switch to dark mode" />}
     </button>
