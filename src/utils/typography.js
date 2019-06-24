@@ -43,7 +43,7 @@ const typography = new Typography({
   ],
   scaleRatio: 2.441,
   headerWeight: 700,
-  overrideStyles: () => ({
+  overrideStyles: ({ rhythm }) => ({
     img: {
       marginBottom: 0,
     },
@@ -56,3 +56,4 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 export default typography
+export const { rhythm } = typography

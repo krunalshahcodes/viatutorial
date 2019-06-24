@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
+import { MDXProvider } from '@mdx-js/react'
 import { Global } from '@emotion/core'
+import mdxComponents from './mdx'
 import { ThemeProvider, themes } from '../../config/theme'
 import reset from '../utils/reset'
 import Navigation from './Navigation'
@@ -31,7 +33,9 @@ const Layout = ({ children }) => {
       <>
         <Global styles={reset(theme)} />
         <Navigation />
-        {children}
+        <MDXProvider components={mdxComponents}>
+          <>{children}</>
+        </MDXProvider>
       </>
     </ThemeProvider>
   )
