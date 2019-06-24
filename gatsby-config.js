@@ -44,5 +44,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-emotion`,
+    `gatsby-plugin-netlify`,
+    `gatsby-plugin-netlify-cache`,
   ],
 }
