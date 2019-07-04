@@ -2,7 +2,7 @@
   "name": "viatutorial",
   "private": true,
   "description": "Tutorials Website",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
@@ -19,9 +19,17 @@
     }
   },
   "dependencies": {
+    "@emotion/core": "^10.0.14",
+    "@emotion/styled": "^10.0.14",
     "gatsby": "2.13.3",
+    "gatsby-plugin-emotion": "^4.1.0",
+    "gatsby-plugin-typography": "^2.3.0",
+    "gatsby-source-filesystem": "^2.1.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-typography": "^0.16.19",
+    "styled-theming": "^2.2.0",
+    "typography": "^0.16.19"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
