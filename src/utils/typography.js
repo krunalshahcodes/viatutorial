@@ -2,8 +2,8 @@ import Typography from 'typography'
 
 const typography = new Typography({
   title: 'Viatutorial',
-  baseFontSize: '18px',
-  baseLineHeight: 1.55,
+  baseFontSize: '16px',
+  baseLineHeight: 1.45,
   includeNormalize: false,
   headerFontFamily: [
     'Circular',
