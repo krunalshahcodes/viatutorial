@@ -154,10 +154,7 @@ const Head = props => {
       <meta property="og:image" content={image} />
       <meta property="og:image:alt" content={description} />
       <meta property="og:see_also" content="https://github.com/imkrunal" />
-      <meta
-        property="og:see_also"
-        content="https://www.instagram.com/krunal7091"
-      />
+      <meta property="og:see_also" content="https://www.instagram.com/krunal7091" />
       <meta property="og:see_also" content="https://www.behance.net/rizegfx" />
       <meta property="og:see_also" content="https://twitter.com/krunal7091" />
       {/* Twitter Card */}
@@ -167,33 +164,16 @@ const Head = props => {
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
       <meta name="twitter:image:alt" content={description} />
-      {!article && (
-        <script type="application/ld+json">
-          {JSON.stringify(schemaOrgWebPage)}
-        </script>
-      )}
-      {article && (
-        <script type="application/ld+json">
-          {JSON.stringify(schemaArticle)}
-        </script>
-      )}
+      {!article && <script type="application/ld+json">{JSON.stringify(schemaOrgWebPage)}</script>}
+      {article && <script type="application/ld+json">{JSON.stringify(schemaArticle)}</script>}
       <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
-      <script type="application/ld+json">
-        {JSON.stringify(organizationCreator('identity'))}
-      </script>
-      <script type="application/ld+json">
-        {JSON.stringify(organizationCreator('creator'))}
-      </script>
+      <script type="application/ld+json">{JSON.stringify(organizationCreator('identity'))}</script>
+      <script type="application/ld+json">{JSON.stringify(organizationCreator('creator'))}</script>
     </Helmet>
   )
 }
 
-const SEO = props => (
-  <StaticQuery
-    query={querySEO}
-    render={data => <Head {...props} data={data} />}
-  />
-)
+const SEO = props => <StaticQuery query={querySEO} render={data => <Head {...props} data={data} />} />
 
 export default SEO
 
