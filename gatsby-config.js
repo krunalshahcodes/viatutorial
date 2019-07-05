@@ -23,7 +23,26 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+    {
+      resolve: `gatsby-mdx`,
+      options: {
+        extensions: ['.mdx', '.md', '.markdown'],
+        gatsbyRemarkPlugins: [
+          { resolve: `gatsby-remark-copy-linked-files` },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              backgroundColor: '#fafafa',
+              maxWidth: 1035,
+            },
+          },
+        ],
+      },
+    },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-emotion`,
+    `gatsby-plugin-catch-links`,
   ],
 }

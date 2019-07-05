@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { MDXProvider } from '@mdx-js/react'
 import { Global } from '@emotion/core'
 import { ThemeProvider } from 'emotion-theming'
+import mdxComponents from './mdx'
 import theme from '../../config/theme'
 import reset from '../utils/reset'
 import SEO from './SEO'
@@ -13,7 +15,9 @@ const Layout = ({ children, pathname, customSEO }) => (
       {!customSEO && <SEO pathname={pathname} />}
       <Global styles={reset} />
       <Navigation />
-      {children}
+      <MDXProvider components={mdxComponents}>
+        <>{children}</>
+      </MDXProvider>
     </>
   </ThemeProvider>
 )
