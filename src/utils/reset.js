@@ -65,7 +65,6 @@ const reset = css`
     }
   }
   p {
-    margin: 0;
     line-height: 1.5;
   }
   h1,

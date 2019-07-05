@@ -46,6 +46,7 @@ const PostMeta = ({ author, date }) => (
     <p
       css={css`
         font-size: 0.875rem;
+        margin: 0;
       `}
     >
       on {date}

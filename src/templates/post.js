@@ -1,10 +1,118 @@
 import React from 'react'
-import { Layout, Container } from '../components'
+import PropTypes from 'prop-types'
+import { Link, graphql } from 'gatsby'
+import Img from 'gatsby-image'
+import MDXRenderer from 'gatsby-mdx/mdx-renderer'
+import { css } from '@emotion/core'
+import { Layout, Container, SEO, PostMeta, PrevNext } from '../components'
 
-const Post = () => (
-  <Layout>
-    <Container>Post</Container>
-  </Layout>
-)
+const Post = ({ data, location, pageContext }) => {
+  const post = data.mdx
+
+  return (
+    <Layout pathname={location.pathname} customSEO>
+      <SEO postNode={post} pathname={location.pathname} article />
+      <Container>
+        <div
+          css={css`
+            display: flex;
+          `}
+        >
+          <article
+            css={css`
+              flex: 0 70%;
+            `}
+          >
+            <h1>{post.frontmatter.title}</h1>
+            <PostMeta author={post.frontmatter.author} date={post.frontmatter.date} />
+            {post.frontmatter.banner && (
+              <Img
+                css={css`
+                  margin-bottom: 1rem;
+                `}
+                fluid={post.frontmatter.banner.childImageSharp.fluid}
+                alt={post.frontmatter.title}
+              />
+            )}
+            <MDXRenderer>{post.code.body}</MDXRenderer>
+            <PrevNext pageContext={pageContext} />
+          </article>
+        </div>
+      </Container>
+    </Layout>
+  )
+}
 
 export default Post
+
+Post.propTypes = {
+  data: PropTypes.shape({
+    mdx: PropTypes.shape({
+      code: PropTypes.object.isRequired,
+      fields: PropTypes.shape({
+        slug: PropTypes.string.isRequired,
+      }).isRequired,
+      frontmatter: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string,
+        banner: PropTypes.object,
+        date: PropTypes.string,
+        author: PropTypes.shape({
+          id: PropTypes.string.isRequired,
+          avatar: PropTypes.object.isRequired,
+          fields: PropTypes.shape({
+            slug: PropTypes.string.isRequired,
+          }).isRequired,
+        }).isRequired,
+      }).isRequired,
+    }).isRequired,
+  }).isRequired,
+  location: PropTypes.object.isRequired,
+  pageContext: PropTypes.object.isRequired,
+}
+
+export const pageQuery = graphql`
+  query BlogPostBySlug($slug: String!) {
+    mdx(fields: { slug: { eq: $slug } }) {
+      tableOfContents
+      code {
+        body
+      }
+      fields {
+        slug
+      }
+      frontmatter {
+        title
+        date(formatString: "MMMM DD, YYYY")
+        description
+        tags
+        author {
+          id
+          bio
+          fields {
+            slug
+          }
+          avatar {
+            childImageSharp {
+              fixed(
+                width: 50
+                height: 50
+                quality: 80
+                traceSVG: { turdSize: 10, background: "#f6f2f8", color: "#e0d6eb" }
+              ) {
+                ...GatsbyImageSharpFixed_tracedSVG
+              }
+            }
+          }
+        }
+        banner {
+          childImageSharp {
+            fluid(quality: 80) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+      }
+    }
+  }
+`
