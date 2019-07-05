@@ -64,6 +64,18 @@ const reset = css`
       outline: 0;
     }
   }
+  p {
+    margin: 0;
+    line-height: 1.5;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin: 0;
+    line-height: 1.5;
+  }
   blockquote {
     border-left: 5px solid ${theme.colors.primary};
     padding-left: 1rem !important;

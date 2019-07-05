@@ -9,6 +9,9 @@ module.exports = {
     twitter: config.twitter,
     facebook: config.facebook,
   },
+  mapping: {
+    'Mdx.frontmatter.author': `AuthorYaml`,
+  },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
@@ -41,6 +44,7 @@ module.exports = {
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-transformer-yaml`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-catch-links`,
