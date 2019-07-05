@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 import { css } from '@emotion/core'
-import theme from 'prism-react-renderer/themes/nightOwl'
+import theme from 'prism-react-renderer/themes/oceanicNext'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 
 const RE = /{([\d,-]+)}/
@@ -15,6 +15,8 @@ const preStyles = css`
   float: left;
   min-width: 100%;
   overflow: initial;
+  padding: 1rem;
+  border-radius: 0.2rem;
 `
 
 function calculateLinesToHighlight(meta) {
@@ -49,7 +51,7 @@ function Code({ codeString, language, metastring }) {
                   className: shouldHighlightLine(i) ? 'highlight-line' : '',
                 })}
               >
-                <span
+                {/* <span
                   css={css`
                     display: inline-block;
                     width: 2em;
@@ -58,7 +60,7 @@ function Code({ codeString, language, metastring }) {
                   `}
                 >
                   {i + 1}
-                </span>
+                </span> */}
                 {line.map((token, key) => (
                   <span key={key} {...getTokenProps({ token, key })} />
                 ))}

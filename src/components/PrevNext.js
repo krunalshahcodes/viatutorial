@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { css } from '@emotion/core'
+import { bpMaxMD } from '../utils/breakpoints'
 
 const PrevNext = ({ pageContext }) => {
   const { next, prev } = pageContext
@@ -12,6 +13,9 @@ const PrevNext = ({ pageContext }) => {
         align-items: center;
         justify-content: space-between;
         margin-top: 2rem;
+        ${bpMaxMD} {
+          flex-direction: column;
+        }
       `}
     >
       <div

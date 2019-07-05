@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
 import { css } from '@emotion/core'
+import { bpMaxMD } from '../utils/breakpoints'
 import { Layout, Container, SEO, PostMeta, PrevNext } from '../components'
 
 const Post = ({ data, location, pageContext }) => {
@@ -16,14 +17,29 @@ const Post = ({ data, location, pageContext }) => {
         <div
           css={css`
             display: flex;
+            ${bpMaxMD} {
+              flex-direction: column;
+            }
           `}
         >
           <article
             css={css`
               flex: 0 70%;
+              ${bpMaxMD} {
+                flex: 1;
+              }
             `}
           >
-            <h1>{post.frontmatter.title}</h1>
+            <h1
+              css={css`
+                font-weight: 900;
+                ${bpMaxMD} {
+                  font-size: 1.5rem;
+                }
+              `}
+            >
+              {post.frontmatter.title}
+            </h1>
             <PostMeta author={post.frontmatter.author} date={post.frontmatter.date} />
             {post.frontmatter.banner && (
               <Img
