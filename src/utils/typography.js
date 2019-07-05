@@ -1,8 +1,9 @@
 import Typography from 'typography'
+import '../fonts/fonts.css'
 
 const typography = new Typography({
   title: 'Viatutorial',
-  baseFontSize: '16px',
+  baseFontSize: '18px',
   baseLineHeight: 1.45,
   includeNormalize: false,
   headerFontFamily: [

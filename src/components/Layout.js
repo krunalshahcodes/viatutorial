@@ -5,12 +5,14 @@ import { ThemeProvider } from 'emotion-theming'
 import theme from '../../config/theme'
 import reset from '../utils/reset'
 import SEO from './SEO'
+import Navigation from './Navigation'
 
 const Layout = ({ children, pathname, customSEO }) => (
   <ThemeProvider theme={theme}>
     <>
       {!customSEO && <SEO pathname={pathname} />}
       <Global styles={reset} />
+      <Navigation />
       {children}
     </>
   </ThemeProvider>
