@@ -5,7 +5,7 @@ import Img from 'gatsby-image'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
 import { css } from '@emotion/core'
 import { bpMaxMD } from '../utils/breakpoints'
-import { Layout, Container, SEO, PostMeta, PrevNext } from '../components'
+import { Layout, Container, SEO, PostMeta, Tags, PrevNext } from '../components'
 
 const Post = ({ data, location, pageContext }) => {
   const post = data.mdx
@@ -51,6 +51,7 @@ const Post = ({ data, location, pageContext }) => {
               />
             )}
             <MDXRenderer>{post.code.body}</MDXRenderer>
+            <Tags tags={post.frontmatter.tags} />
             <PrevNext pageContext={pageContext} />
           </article>
         </div>
@@ -73,6 +74,7 @@ Post.propTypes = {
         description: PropTypes.string,
         banner: PropTypes.object,
         date: PropTypes.string,
+        tags: PropTypes.array,
         author: PropTypes.shape({
           id: PropTypes.string.isRequired,
           avatar: PropTypes.object.isRequired,

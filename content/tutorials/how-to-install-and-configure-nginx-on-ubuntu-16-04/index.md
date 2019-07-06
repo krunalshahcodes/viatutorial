@@ -6,8 +6,8 @@ draft: false
 author: Krunal Shah
 banner: './images/how-to-install-nginx.jpg'
 tags:
-  - ubuntu
-  - nginx
+  - Ubuntu
+  - Nginx
 roadmap: 1
 ---
 

@@ -12,7 +12,7 @@ exports.createPages = ({ graphql, actions }) => {
     const postTemplate = path.resolve(`src/templates/post.js`)
     const coursesListTemplate = path.resolve(`src/templates/tutorials.js`)
     const tutorialsListTemplate = path.resolve(`src/templates/tutorials.js`)
-    const tagTemplate = path.resolve(`src/templates/post.js`)
+    const tagTemplate = path.resolve(`src/templates/tags.js`)
     const authorPageTemplate = path.resolve(`src/templates/authors.js`)
 
     graphql(`
