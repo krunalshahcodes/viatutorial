@@ -4,14 +4,16 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { css } from '@emotion/core'
 import { bpMaxMD } from '../utils/breakpoints'
-import { Layout, Container, PostsList } from '../components'
+import { Layout, Container, PostsList, SEO } from '../components'
 
 const Authors = ({ data, location }) => {
   const author = data.authorYaml
   const post = data.allMdx.edges
 
   return (
-    <Layout pathname={location.pathname}>
+    <Layout pathname={location.pathname} customSEO>
+      <SEO postNode={author} pathname={location.pathname} author />
+
       <Container>
         <div
           css={css`

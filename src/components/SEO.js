@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 
 const Head = props => {
-  const { postNode, pathname, article, data } = props
+  const { postNode, pathname, article, author, data } = props
   const { buildTime, config } = data.site
   const URL = `${config.siteUrl}${pathname}`
   const isSnippets = URL === `${URL}/snippets`
@@ -30,6 +30,11 @@ const Head = props => {
   } else {
     title = config.siteTitle
     description = config.siteDescription
+  }
+
+  if (author) {
+    title = `${postNode.id} - ${config.siteShortName}`
+    description = `${postNode.bio ? postNode.bio : config.siteDescription}`
   }
 
   const organizationCreator = input => ({
@@ -182,11 +187,13 @@ Head.propTypes = {
   data: PropTypes.any.isRequired,
   postNode: PropTypes.object,
   article: PropTypes.bool,
+  author: PropTypes.bool,
 }
 
 Head.defaultProps = {
   postNode: null,
   article: false,
+  author: false,
 }
 
 const querySEO = graphql`
