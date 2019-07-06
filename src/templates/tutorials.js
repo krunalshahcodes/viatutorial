@@ -15,9 +15,7 @@ const Tutorials = ({ data, location }) => {
       <Container>
         <h1
           css={css`
-            ${bpMaxMD} {
-              font-size: 1.5rem;
-            }
+            font-size: 1.7rem;
           `}
         >
           Tutorials

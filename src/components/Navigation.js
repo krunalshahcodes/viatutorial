@@ -26,13 +26,16 @@ const Navigation = () => (
       border-bottom: 1px solid #e4e4e4;
       ${bpMaxSM} {
         padding: 1rem;
+        justify-content: center;
       }
     `}
   >
     <Link
       to="/"
       css={css`
-        font-weight: 700;
+        font-size: 1.25rem;
+        font-weight: 900;
+        color: #484848;
       `}
     >
       Via Tutorial

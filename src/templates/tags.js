@@ -14,7 +14,13 @@ const Tags = ({ data, location, pageContext }) => {
     <Layout pathname={location.pathname}>
       <Helmet title={`${tags} - ${config.siteShortName}`} />
       <Container>
-        <h1>{tags}</h1>
+        <h1
+          css={css`
+            font-size: 1.7rem;
+          `}
+        >
+          {tags}
+        </h1>
         <div
           css={css`
             display: flex;

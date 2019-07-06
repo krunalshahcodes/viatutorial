@@ -13,7 +13,14 @@ const TagsPage = ({ data, location }) => {
     <Layout pathname={location.pathname}>
       <Helmet title={`Tags - ${config.siteShortName}`} />
       <Container>
-        <h1>Tags</h1>
+        <h1
+          css={css`
+            font-size: 1.7rem;
+            margin-bottom: 1rem;
+          `}
+        >
+          Tags
+        </h1>
         <div
           css={css`
             display: flex;
