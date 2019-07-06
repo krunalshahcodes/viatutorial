@@ -1,6 +1,12 @@
 <h1 align="center">🚧 Via Tutorial 🚧</h1>
 
 <p align="center">
+  <a href="https://cypress.io">
+    <img
+      src="https://img.shields.io/badge/cypress.io-tests-green.svg?style=flat-square"
+      alt="tests by Cypress.io"
+    />
+  </a>
 	<a href="https://github.com/prettier/prettier">
     <img
       src="https://img.shields.io/badge/styled_with-prettier-ff69b4.svg?style=flat-square"
@@ -16,31 +22,27 @@
 </p>
 
 <p align="center">
-  Via Tutorial Website. Built with <a href="https://www.gatsbyjs.org">Gatsby.js</a>.
+  Via Tutorial Website. Built with <a href="https://www.gatsbyjs.org">Gatsby.js</a>
 </p>
 <p align="center">
   <strong>
-    Available at <a href="https://www.viatutorial.com">www.viatutorial.com</a>.
+    Available at <a href="https://www.viatutorial.com">www.viatutorial.com</a>
   </strong>
 </p>
 
 ## Features
 
-- Gatsby-Image (Responsive images) & PrismJS highlighting
+- MDX JS
+- Gatsby-Image (Responsive images)
+- PrismJS code highlighting
 - Tags & Author Pages
 - PWA
 - SEO (sitemap, schema.org data, OpenGraph & Twitter tags)
-- Husky + Lint-Staged
+- Husky and Lint-Staged
 
 ## Tech Stack
 
 - Hosted on Netlify
-- ESLint & Prettier for linting
+- ESLint, Prettier linting with Airbnb style guide
 - Cypress.io for E2E-testing
 - CircleCI
-
-## License
-
-Only for educational purposes! You are **not** allowed to use this site publicly and/or commercially.
-
-You are **not** permitted to use, modify, or share the software for any purpose other than for private educational purposes.
