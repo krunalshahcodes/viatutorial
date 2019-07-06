@@ -71,6 +71,21 @@ module.exports = {
         icon: `src/assets/icon.png`,
       },
     },
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        host: config.siteUrl,
+        sitemap: `${config.siteUrl}/sitemap.xml`,
+        env: {
+          development: {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+          },
+          production: {
+            policy: [{ userAgent: '*', allow: '/' }],
+          },
+        },
+      },
+    },
     `gatsby-plugin-offline`,
     `gatsby-plugin-netlify`,
     `gatsby-plugin-netlify-cache`,
