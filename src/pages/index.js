@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { css } from '@emotion/core'
 import { bpMaxMD } from '../utils/breakpoints'
-import { Layout, Container, PostsList } from '../components'
+import { Layout, Container, PostsList, Sidebar } from '../components'
 
 const Index = ({ data, location }) => {
   const posts = data.allMdx.edges
@@ -29,6 +29,7 @@ const Index = ({ data, location }) => {
               <PostsList key={post.id} post={post} />
             ))}
           </div>
+          <Sidebar />
         </div>
       </Container>
     </Layout>

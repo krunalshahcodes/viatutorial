@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from '@emotion/core'
-import { bpMaxSM } from '../utils/breakpoints'
+import { bpMaxSM, bpMaxMD } from '../utils/breakpoints'
 
 const Container = ({ maxWidth, noHorizontalPadding, noVerticalPadding, children, ...restProps }) => (
   <div
@@ -12,6 +12,9 @@ const Container = ({ maxWidth, noHorizontalPadding, noVerticalPadding, children,
       padding: ${noVerticalPadding ? 0 : '32'}px ${noHorizontalPadding ? 0 : '32'}px;
       ${bpMaxSM} {
         padding: ${noVerticalPadding ? 0 : '16'}px ${noHorizontalPadding ? 0 : '16'}px;
+      }
+      ${bpMaxMD} {
+        margin-bottom: 80px;
       }
     `}
     {...restProps}

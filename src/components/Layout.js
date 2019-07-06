@@ -8,6 +8,7 @@ import theme from '../../config/theme'
 import reset from '../utils/reset'
 import SEO from './SEO'
 import Navigation from './Navigation'
+import MobileNav from './MobileNav'
 
 const Layout = ({ children, pathname, customSEO }) => (
   <ThemeProvider theme={theme}>
@@ -18,6 +19,7 @@ const Layout = ({ children, pathname, customSEO }) => (
       <MDXProvider components={mdxComponents}>
         <>{children}</>
       </MDXProvider>
+      <MobileNav />
     </>
   </ThemeProvider>
 )
