@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { css } from '@emotion/core'
-import { bpMaxSM } from '../utils/breakpoints'
+import { bpMaxMD } from '../utils/breakpoints'
 import { Layout, Container, PostsList } from '../components'
 
 const Index = ({ data, location }) => {
@@ -15,7 +15,7 @@ const Index = ({ data, location }) => {
           css={css`
             display: flex;
             flex-direction: row;
-            ${bpMaxSM} {
+            ${bpMaxMD} {
               flex-direction: column;
             }
           `}

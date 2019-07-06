@@ -42,7 +42,16 @@ const PostsList = ({ post }) => (
       </Link>
       <p>{post.frontmatter.description ? post.frontmatter.description : post.excerpt}</p>
       <PostMeta author={post.frontmatter.author} date={post.frontmatter.date} />
-      <Link to={post.fields.slug}>Read More</Link>
+      <Link
+        css={css`
+          ${bpMaxSM} {
+            display: none;
+          }
+        `}
+        to={post.fields.slug}
+      >
+        Read More
+      </Link>
     </div>
     {post.frontmatter.banner && (
       <Link

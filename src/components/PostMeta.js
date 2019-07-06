@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { css } from '@emotion/core'
+import { bpMaxSM } from '../utils/breakpoints'
 
 const PostMeta = ({ author, date }) => (
   <div
@@ -10,6 +11,10 @@ const PostMeta = ({ author, date }) => (
       display: flex;
       align-items: center;
       padding: 0.875rem 0rem;
+      ${bpMaxSM} {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     `}
   >
     <Link
