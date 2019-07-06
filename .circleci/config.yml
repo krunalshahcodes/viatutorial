@@ -3,7 +3,7 @@ executors:
     parameters:
       image:
         type: string
-        default: '10.13.0'
+        default: 'lts'
     docker:
       - image: circleci/node:<< parameters.image >>
         environment:
@@ -12,7 +12,6 @@ executors:
 aliases:
   e2e-executor: &e2e-executor
     docker:
-      - image: circleci/node:10.13.0
       - image: cypress/browsers:chrome69
         environment:
           TERM: xterm
@@ -26,7 +25,7 @@ aliases:
   install_node_modules: &install_node_modules
     run:
       name: Install Yarn Packages
-      command: yarn install --frozen-lockfile
+      command: yarn install --frozen-lockfile --ignore-engines
 
   save_cache: &save_cache
     save_cache:
@@ -79,7 +78,7 @@ jobs:
   lighthouse:
     executor:
       name: node
-      image: '10-browsers'
+      image: 'lts-browsers'
     steps:
       - checkout
       - <<: *restore_cache
