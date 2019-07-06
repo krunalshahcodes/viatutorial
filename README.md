@@ -1,6 +1,18 @@
 <h1 align="center">🚧 Via Tutorial 🚧</h1>
 
 <p align="center">
+  <a href="https://circleci.com/gh/imkrunal/viatutorial">
+    <img
+      src="https://circleci.com/gh/imkrunal/viatutorial.svg?style=svg&circle-token=f900d9d8084a3ac1bcc85b4391c3eee77e052430"
+      alt="CircleCI"
+    />
+  </a>
+  <a href="https://app.netlify.com/sites/viatutorial/deploys">
+    <img
+      src="https://api.netlify.com/api/v1/badges/f0a180f3-a4ee-42fc-ad8c-ec1130f4dbaf/deploy-status"
+      alt="Netlify"
+    />
+  </a>
   <a href="https://cypress.io">
     <img
       src="https://img.shields.io/badge/cypress.io-tests-green.svg?style=flat-square"
