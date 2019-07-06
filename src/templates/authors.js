@@ -8,7 +8,7 @@ import { Layout, Container, PostsList, SEO } from '../components'
 
 const Authors = ({ data, location }) => {
   const author = data.authorYaml
-  const post = data.allMdx.edges
+  const posts = data.allMdx.edges
 
   return (
     <Layout pathname={location.pathname} customSEO>
@@ -69,8 +69,8 @@ const Authors = ({ data, location }) => {
               flex: 0 70%;
             `}
           >
-            {post.map(({ node }) => (
-              <PostsList key={node.id} post={node} />
+            {posts.map(({ node: post }) => (
+              <PostsList key={post.id} post={post} />
             ))}
           </div>
         </div>
