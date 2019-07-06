@@ -1,9 +1,12 @@
+/* eslint-disable react/prop-types */
+/* eslint react/display-name:0, consistent-return:0 */
 import React from 'react'
 
 import Title from './Title'
 import Subtitle from './Subtitle'
-import SmallTitle from './SmallTitle'
+import SmallTitle from './Smalltitle'
 import Paragraph from './Paragraph'
+import List from './List'
 import Code from './Code'
 
 export default {
@@ -12,6 +15,7 @@ export default {
   h2: props => <Subtitle {...props} />,
   h3: props => <SmallTitle {...props} />,
   p: props => <Paragraph {...props} />,
+  ul: props => <List {...props} />,
   pre: preProps => {
     const props = preToCodeBlock(preProps)
     // if there's a codeString and some props, we passed the test
@@ -23,6 +27,8 @@ export default {
   },
 }
 
+// lifted this from mdx-utils
+// it doesn't compile it's code and this busted IE, so I'm just vendoring it.
 function preToCodeBlock(preProps) {
   if (
     // children is code element
@@ -45,5 +51,3 @@ function preToCodeBlock(preProps) {
     }
   }
 }
-
-/* eslint react/display-name:0, consistent-return:0, react/prop-types:0 */

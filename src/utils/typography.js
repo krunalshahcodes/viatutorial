@@ -1,20 +1,13 @@
 import Typography from 'typography'
 import '../fonts/fonts.css'
 
-export const fonts = {
-  light: 'Avenir Light',
-  regular: 'Avenir Medium',
-  semibold: 'Avenir Book',
-  bold: 'Avenir Heavy',
-}
-
 const typography = new Typography({
   title: 'Viatutorial',
   baseFontSize: '18px',
-  baseLineHeight: 1.55,
+  baseLineHeight: 1.45,
   includeNormalize: false,
   headerFontFamily: [
-    fonts.bold,
+    'Circular',
     'Ubuntu',
     '-apple-system',
     'BlinkMacSystemFont',
@@ -28,7 +21,7 @@ const typography = new Typography({
     'Segoe UI Symbol',
   ],
   bodyFontFamily: [
-    fonts.regular,
+    'Circular',
     'Ubuntu',
     '-apple-system',
     'BlinkMacSystemFont',
@@ -49,11 +42,6 @@ const typography = new Typography({
     },
   }),
 })
-
-// Hot reload typography in development.
-if (process.env.NODE_ENV !== 'production') {
-  typography.injectStyles()
-}
 
 export default typography
 export const { rhythm } = typography

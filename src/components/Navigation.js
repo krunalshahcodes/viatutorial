@@ -1,83 +1,64 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
-import { Link } from 'gatsby'
-import { useTheme } from '../../config/theme'
-import ThemeToggler from './ThemeToggler'
-import Container from './Container'
 import { bpMaxSM } from '../utils/breakpoints'
 
 const NavLink = styled(Link)`
-  color: #b2becd;
+  font-size: 0.872rem;
   padding: 1rem;
-  &.active,
+  display: block;
+  color: #484848;
   &:hover,
-  &:focus {
-    color: #ffffff;
+  &:focus,
+  &.active {
+    color: #ff5a5f;
   }
 `
 
-const Navigation = () => {
-  const theme = useTheme()
-  return (
+const Navigation = () => (
+  <nav
+    css={css`
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0rem 1rem;
+      border-bottom: 1px solid #e4e4e4;
+      ${bpMaxSM} {
+        padding: 1rem;
+      }
+    `}
+  >
+    <Link
+      to="/"
+      css={css`
+        font-weight: 700;
+      `}
+    >
+      Via Tutorial
+    </Link>
     <div
       css={css`
-        background: ${theme.colors.nav_bg};
         display: flex;
         align-items: center;
+        flex: 1;
+        justify-content: flex-end;
         ${bpMaxSM} {
-          padding: 1rem;
+          display: none;
         }
       `}
     >
-      <Container noVerticalPadding>
-        <div
-          css={css`
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-          `}
-        >
-          <Link
-            to="/"
-            aria-label="go to homepage"
-            css={css`
-              color: ${theme.colors.white};
-              font-size: 1.25rem;
-              &:hover,
-              &:focus {
-                color: ${theme.colors.white};
-              }
-            `}
-          >
-            ViaTutorial
-          </Link>
-          <div
-            css={css`
-              display: flex;
-              ${bpMaxSM} {
-                display: none;
-              }
-            `}
-          >
-            <NavLink to="/" activeClassName="active">
-              Home
-            </NavLink>
-            <NavLink to="/devops" activeClassName="active">
-              Devops
-            </NavLink>
-          </div>
-          <ThemeToggler
-            css={css`
-              background: ${theme.colors.link_hover};
-            `}
-            toggleTheme={theme.toggleTheme}
-            themeName={theme.themeName}
-          />
-        </div>
-      </Container>
+      <NavLink to="/" activeClassName="active">
+        Home
+      </NavLink>
+      <NavLink to="/tutorials" activeClassName="active">
+        Tutorials
+      </NavLink>
+      <NavLink to="/tags" activeClassName="active">
+        Tags
+      </NavLink>
     </div>
-  )
-}
+  </nav>
+)
 
 export default Navigation

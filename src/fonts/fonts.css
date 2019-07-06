@@ -1,27 +1,21 @@
 @font-face {
-  font-family: 'Avenir Heavy';
+  font-family: 'Circular';
+  font-style: normal;
+  font-weight: 400;
+  src: url('CircularStd-Book.woff2') format('woff2'),
+    url('CircularStd-Book.woff') format('woff');
+}
+@font-face {
+  font-family: 'Circular';
   font-style: normal;
   font-weight: 700;
-  src: url('Avenir-Heavy.woff') format('woff');
+  src: url('CircularStd-Bold.woff2') format('woff2'),
+    url('CircularStd-Bold.woff') format('woff');
 }
-
 @font-face {
-  font-family: 'Avenir Medium';
-  font-style: normal;
-  font-weight: 300;
-  src: url('Avenir-Medium.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Avenir Light';
-  font-style: normal;
-  font-weight: 100;
-  src: url('Avenir-Light.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Avenir Book';
+  font-family: 'Circular';
   font-style: normal;
   font-weight: 900;
-  src: url('Avenir-Book.woff') format('woff');
+  src: url('CircularStd-Black.woff2') format('woff2'),
+    url('CircularStd-Black.woff') format('woff');
 }

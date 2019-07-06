@@ -3,17 +3,18 @@ import PropTypes from 'prop-types'
 import { css } from '@emotion/core'
 import { bpMaxSM } from '../utils/breakpoints'
 
-const Container = ({ maxWidth, noHorizontalPadding, noVerticalPadding, children }) => (
+const Container = ({ maxWidth, noHorizontalPadding, noVerticalPadding, children, ...restProps }) => (
   <div
     css={css`
       width: 100%;
       margin: 0 auto;
-      max-width: ${maxWidth + (noHorizontalPadding ? 0 : 80)}px;
-      padding: ${noVerticalPadding ? 0 : '40'}px ${noHorizontalPadding ? 0 : '40'}px;
+      max-width: ${maxWidth + (noHorizontalPadding ? 0 : 64)}px;
+      padding: ${noVerticalPadding ? 0 : '32'}px ${noHorizontalPadding ? 0 : '32'}px;
       ${bpMaxSM} {
-        padding: ${noVerticalPadding ? 0 : '20'}px ${noHorizontalPadding ? 0 : '20'}px;
+        padding: ${noVerticalPadding ? 0 : '16'}px ${noHorizontalPadding ? 0 : '16'}px;
       }
     `}
+    {...restProps}
   >
     {children}
   </div>
@@ -21,15 +22,15 @@ const Container = ({ maxWidth, noHorizontalPadding, noVerticalPadding, children 
 
 export default Container
 
+Container.defaultProps = {
+  maxWidth: 1280,
+  noHorizontalPadding: false,
+  noVerticalPadding: false,
+}
+
 Container.propTypes = {
   maxWidth: PropTypes.number,
   noHorizontalPadding: PropTypes.bool,
   noVerticalPadding: PropTypes.bool,
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
-}
-
-Container.defaultProps = {
-  maxWidth: 1280,
-  noVerticalPadding: false,
-  noHorizontalPadding: false,
 }

@@ -1,6 +1,8 @@
 import { css } from '@emotion/core'
+import theme from '../../config/theme'
+import typography from './typography'
 
-const reset = theme => css`
+const reset = css`
   form {
     margin: 0;
   }
@@ -8,6 +10,7 @@ const reset = theme => css`
   ol {
     list-style-position: inside;
     margin-left: 0;
+    font-size: ${typography.baseFontSize};
   }
   *,
   *:before,
@@ -32,20 +35,21 @@ const reset = theme => css`
   body {
     color: ${theme.colors.body_text};
     background-color: ${theme.colors.body_bg};
+    font-family: ${typography.bodyFontFamily};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   ::selection {
     color: ${theme.colors.white};
-    background-color: ${theme.colors.link};
+    background-color: ${theme.colors.primary};
   }
   a {
-    color: ${theme.colors.link};
+    color: ${theme.colors.primary};
     transition: all 0.3s ease-in-out;
     text-decoration: none;
     &:hover,
     &:focus {
-      color: ${theme.colors.link_hover};
+      color: ${theme.colors.primary_hover};
     }
   }
   a:not([href]):not([tabindex]) {
@@ -60,8 +64,19 @@ const reset = theme => css`
       outline: 0;
     }
   }
+  p {
+    line-height: 1.5;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin: 0;
+    line-height: 1.5;
+  }
   blockquote {
-    border-left: 5px solid ${theme.colors.link};
+    border-left: 5px solid ${theme.colors.primary};
     padding-left: 1rem !important;
     margin-left: 0 !important;
     margin-right: 0 !important;

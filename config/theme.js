@@ -1,49 +1,15 @@
-import { createTheming } from '@callstack/react-theme-provider'
-
 const colors = {
   white: '#ffffff',
-  black: '#000000',
+  body_bg: '#ffffff',
+  body_text: '#484848',
+  primary: '#ff5a5f',
+  primary_hover: '#df3c47',
+  secondary: '#008489',
+  secondary_hover: '#006a70',
 }
 
-const themes = {
-  default: {
-    themeName: 'default',
-    colors: {
-      body_bg: '#EDEFF4',
-      body_text: '#24292e',
-      body_title: '#24292e',
-      link: '#368554',
-      link_hover: '#296A43',
-      nav_bg: '#368554',
-      nav_text: '#fffff',
-      card_bg: '#ffffff',
-      card_shadow: 'rgba(102, 119, 136, 0.03) 0px 6px 8px, rgba(102, 119, 136, 0.3) 0px 1px 2px',
-      card_title: '#24292e',
-      code_bg: '#282C34',
-      code_text: '#fff',
-      ...colors,
-    },
-  },
-  dark: {
-    themeName: 'dark',
-    colors: {
-      body_bg: '#12181A',
-      body_text: '#b2becd',
-      body_title: '#ffffff',
-      link: '#368554',
-      link_hover: '#296A43',
-      nav_bg: '#2A2E34',
-      nav_text: '#b2becd',
-      card_bg: '#2A2E34',
-      card_shadow: '0 4px 8px rgba(0,0,0,0.38)',
-      card_title: '#ffffff',
-      code_bg: '#22262F',
-      code_text: '#b2becd',
-      ...colors,
-    },
-  },
+const theme = {
+  colors,
 }
 
-const { ThemeProvider, useTheme } = createTheming(themes.LIGHT)
-
-export { ThemeProvider, useTheme, themes }
+export default theme

@@ -1,45 +1,26 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
+import { MDXProvider } from '@mdx-js/react'
 import { Global } from '@emotion/core'
-import { ThemeProvider, themes } from '../../config/theme'
+import { ThemeProvider } from 'emotion-theming'
+import mdxComponents from './mdx'
+import theme from '../../config/theme'
 import reset from '../utils/reset'
-import prism from '../utils/prism'
 import SEO from './SEO'
 import Navigation from './Navigation'
 
-const Layout = ({ children, pathname, customSEO }) => {
-  const initializeTheme = () => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('theme') || 'default'
-    }
-    return 'default'
-  }
-
-  const [themeName, setTheme] = useState(initializeTheme)
-
-  useEffect(() => {
-    localStorage.setItem('theme', themeName)
-  }, [themeName])
-
-  const toggleTheme = name => setTheme(name)
-
-  const theme = {
-    ...themes[themeName],
-    toggleTheme,
-  }
-
-  return (
-    <ThemeProvider theme={theme}>
-      <>
-        {!customSEO && <SEO pathname={pathname} />}
-        <Global styles={reset(theme)} />
-        <Global styles={prism(theme)} />
-        <Navigation />
-        {children}
-      </>
-    </ThemeProvider>
-  )
-}
+const Layout = ({ children, pathname, customSEO }) => (
+  <ThemeProvider theme={theme}>
+    <>
+      {!customSEO && <SEO pathname={pathname} />}
+      <Global styles={reset} />
+      <Navigation />
+      <MDXProvider components={mdxComponents}>
+        <>{children}</>
+      </MDXProvider>
+    </>
+  </ThemeProvider>
+)
 
 export default Layout
 

@@ -1,7 +1,8 @@
 /* eslint-disable no-shadow */
 const path = require(`path`)
-const slash = require(`slash`)
 const _ = require(`lodash`)
+const slash = require(`slash`)
+const slugify = require(`slugify`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const moment = require(`moment`)
 
@@ -9,11 +10,14 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   return new Promise((resolve, reject) => {
     const postTemplate = path.resolve(`src/templates/post.js`)
-    const postsList = path.resolve(`src/templates/posts-list.js`)
+    const coursesListTemplate = path.resolve(`src/templates/tutorials.js`)
+    const tutorialsListTemplate = path.resolve(`src/templates/tutorials.js`)
+    const tagTemplate = path.resolve(`src/templates/tags.js`)
+    const authorPageTemplate = path.resolve(`src/templates/authors.js`)
 
     graphql(`
       query {
-        allMarkdownRemark(
+        allMdx(
           sort: { order: DESC, fields: [frontmatter___date, fields___slug] }
           limit: 10000
           filter: { fileAbsolutePath: { ne: null } }
@@ -31,17 +35,29 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
+        allAuthorYaml {
+          edges {
+            node {
+              fields {
+                slug
+              }
+            }
+          }
+        }
       }
     `).then(result => {
       if (result.errors) {
         return reject(result.errors)
       }
 
-      const allPosts = _.filter(result.data.allMarkdownRemark.edges, edge => {
+      const allPosts = _.filter(result.data.allMdx.edges, edge => {
         const slug = _.get(edge, `node.fields.slug`)
         const draft = _.get(edge, `node.frontmatter.draft`)
         if (!slug) return undefined
-        if (_.includes(slug, `/`) && !draft) {
+        if (_.includes(slug, `/courses/`) && !draft) {
+          return edge
+        }
+        if (_.includes(slug, `/tutorials/`) && !draft) {
           return edge
         }
         return undefined
@@ -49,26 +65,59 @@ exports.createPages = ({ graphql, actions }) => {
 
       const allRealeasedPosts = allPosts.filter(post => _.get(post, `node.fields.released`))
 
-      const postsPerPage = 8
-      const numPages = Math.ceil(allRealeasedPosts.length / postsPerPage)
+      const releasedCourses = allRealeasedPosts.filter(post => {
+        const slug = _.get(post, `node.fields.slug`)
+        if (_.includes(slug, `/courses/`)) {
+          return post
+        }
+        return undefined
+      })
 
-      // Create list pages.
+      const releasedTutorials = allRealeasedPosts.filter(post => {
+        const slug = _.get(post, `node.fields.slug`)
+        if (_.includes(slug, `/tutorials/`)) {
+          return post
+        }
+        return undefined
+      })
+
+      const postsPerPage = 8
+
+      // Create cources-list pages.
+      const numCoursesPages = Math.ceil(releasedCourses.length / postsPerPage)
       Array.from({
-        length: numPages,
+        length: numCoursesPages,
       }).forEach((_, i) => {
         createPage({
-          path: i === 0 ? `/` : `/page/${i + 1}`,
-          component: slash(postsList),
+          path: i === 0 ? `/courses` : `/courses/page/${i + 1}`,
+          component: slash(coursesListTemplate),
           context: {
             limit: postsPerPage,
             skip: i * postsPerPage,
-            numPages,
+            numCoursesPages,
             currentPage: i + 1,
           },
         })
       })
 
-      // Create post pages.
+      // Create tutorial-list pages.
+      const numTutorialPages = Math.ceil(releasedTutorials.length / postsPerPage)
+      Array.from({
+        length: numTutorialPages,
+      }).forEach((_, i) => {
+        createPage({
+          path: i === 0 ? `/tutorials` : `/tutorials/page/${i + 1}`,
+          component: slash(tutorialsListTemplate),
+          context: {
+            limit: postsPerPage,
+            skip: i * postsPerPage,
+            numTutorialPages,
+            currentPage: i + 1,
+          },
+        })
+      })
+
+      // Create snippets-post pages.
       allPosts.forEach((edge, index) => {
         let next = index === 0 ? null : allPosts[index - 1].node
         if (next && !_.get(next, `fields.released`)) next = null
@@ -84,7 +133,38 @@ exports.createPages = ({ graphql, actions }) => {
             next,
           },
         })
+
+        const makeSlugTag = tag => _.kebabCase(tag.toLowerCase())
+
+        const tagGroups = _(allRealeasedPosts)
+          .map(post => _.get(post, `node.frontmatter.tags`))
+          .filter()
+          .flatten()
+          .uniq()
+          .groupBy(makeSlugTag)
+
+        tagGroups.forEach((tags, tagSlug) => {
+          createPage({
+            path: `/tags/${tagSlug}/`,
+            component: tagTemplate,
+            context: {
+              tags,
+            },
+          })
+        })
       })
+
+      // Create pages for contributpors
+      result.data.allAuthorYaml.edges.forEach(edge => {
+        createPage({
+          path: `${edge.node.fields.slug}`,
+          component: slash(authorPageTemplate),
+          context: {
+            slug: edge.node.fields.slug,
+          },
+        })
+      })
+
       return resolve()
     })
   })
@@ -93,7 +173,7 @@ exports.createPages = ({ graphql, actions }) => {
 exports.onCreateNode = ({ node, actions, getNode }) => {
   let slug
   const { createNodeField } = actions
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `Mdx`) {
     // Create Field Slug
     slug = createFilePath({ node, getNode, basePath: `pages` })
     createNodeField({
@@ -116,5 +196,10 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       value: `https://github.com/imkrunal/viatutorial/edit/master${node.fileAbsolutePath.replace(__dirname, '')}`,
     })
+  } else if (node.internal.type === `AuthorYaml`) {
+    slug = `/authors/${slugify(node.id, {
+      lower: true,
+    })}/`
+    createNodeField({ name: `slug`, node, value: slug })
   }
 }
