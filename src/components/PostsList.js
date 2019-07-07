@@ -59,14 +59,19 @@ const PostsList = ({ post }) => (
         css={css`
           flex: 0 40%;
           margin: 1rem;
-          border-radius: 0.2rem;
           box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
           ${bpMaxSM} {
             display: none;
           }
         `}
       >
-        <Img fluid={post.frontmatter.banner.childImageSharp.fluid} alt={post.frontmatter.title} />
+        <Img
+          css={css`
+            border-radius: 0.2rem;
+          `}
+          fluid={post.frontmatter.banner.childImageSharp.fluid}
+          alt={post.frontmatter.title}
+        />
       </Link>
     )}
   </article>

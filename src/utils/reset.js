@@ -72,6 +72,7 @@ const reset = css`
   h3,
   h4,
   h5 {
+    font-size: 1.7rem;
     margin: 0;
     line-height: 1.5;
   }

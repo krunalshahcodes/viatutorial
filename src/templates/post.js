@@ -34,6 +34,7 @@ const Post = ({ data, location, pageContext }) => {
               css={css`
                 ${bpMaxMD} {
                   font-size: 1.7rem;
+                  font-weight: 900;
                 }
               `}
             >

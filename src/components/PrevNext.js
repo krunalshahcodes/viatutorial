@@ -5,6 +5,7 @@ import { css } from '@emotion/core'
 import { bpMaxMD } from '../utils/breakpoints'
 
 const PrevNext = ({ pageContext }) => {
+  // console.log(pageContext)
   const { next, prev } = pageContext
   return (
     <div
