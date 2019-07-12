@@ -44,6 +44,8 @@
 
 ## Features
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/imkrunal/viatutorial.svg)](https://greenkeeper.io/)
+
 - MDX JS
 - Gatsby-Image (Responsive images)
 - PrismJS code highlighting
