@@ -64,7 +64,7 @@
     "typography": "0.16.19"
   },
   "devDependencies": {
-    "@babel/core": "7.5.0",
+    "@babel/core": "7.5.4",
     "@testing-library/cypress": "4.0.4",
     "babel-eslint": "10.0.2",
     "chrome-launcher": "0.10.7",
