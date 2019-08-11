@@ -58,6 +58,13 @@ module.exports = {
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-sitemap`,
     {
+      resolve: `gatsby-plugin-google-adsense`,
+      options: {
+        googleAdClientId: 'ca-pub-1639226014087526',
+        head: true, // Optional
+      },
+    },
+    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: config.googleAnalyticsID,

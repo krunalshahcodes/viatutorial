@@ -6,6 +6,7 @@ import { css } from '@emotion/core'
 import config from '../../config/website'
 import { bpMaxMD } from '../utils/breakpoints'
 import { Layout, Container, PostsList } from '../components'
+import Sidebar from './sidebar'
 
 const Tutorials = ({ data, location }) => {
   const posts = data.allMdx.edges
@@ -38,6 +39,7 @@ const Tutorials = ({ data, location }) => {
               <PostsList key={post.id} post={post} />
             ))}
           </div>
+          <Sidebar />
         </div>
       </Container>
     </Layout>
