@@ -21,7 +21,7 @@ jobs:
       run: |
         yarn install --frozen-lockfile --ignore-engines
         yarn build --if-present
-        yarn link:ci
+        yarn lint:ci
     - name: E2E Test
       run: |
         yarn install --frozen-lockfile --ignore-engines
