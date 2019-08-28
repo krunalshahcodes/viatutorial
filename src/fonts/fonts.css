@@ -2,6 +2,7 @@
   font-family: 'Circular';
   font-style: normal;
   font-weight: 400;
+  font-display: auto;
   src: url('CircularStd-Book.woff2') format('woff2'),
     url('CircularStd-Book.woff') format('woff');
 }
@@ -9,6 +10,7 @@
   font-family: 'Circular';
   font-style: normal;
   font-weight: 700;
+  font-display: auto;
   src: url('CircularStd-Bold.woff2') format('woff2'),
     url('CircularStd-Bold.woff') format('woff');
 }
@@ -16,6 +18,7 @@
   font-family: 'Circular';
   font-style: normal;
   font-weight: 900;
+  font-display: auto;
   src: url('CircularStd-Black.woff2') format('woff2'),
     url('CircularStd-Black.woff') format('woff');
 }
