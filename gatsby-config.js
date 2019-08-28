@@ -50,6 +50,15 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        // Setting a color is optional.
+        color: config.themeColor,
+        // Disable the loading spinner.
+        showSpinner: true,
+      },
+    },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-transformer-yaml`,
