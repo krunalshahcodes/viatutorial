@@ -55,7 +55,7 @@
     "gatsby-source-filesystem": "2.1.5",
     "gatsby-transformer-sharp": "2.2.4",
     "gatsby-transformer-yaml": "2.2.3",
-    "lodash": "4.17.15",
+    "lodash": "4.17.19",
     "moment": "2.24.0",
     "prism-react-renderer": "0.1.7",
     "react": "16.9.0",
