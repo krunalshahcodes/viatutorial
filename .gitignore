@@ -51,13 +51,12 @@ typings/
 # Output of 'npm pack'
 *.tgz
 
-# dotenv environment variables file
-.env
+# dotenv environment variable files
+.env*
 
 # gatsby files
 .cache/
 public
-results
 
 # Mac files
 .DS_Store
@@ -68,7 +67,3 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
-
-# Cypress
-cypress/videos
-cypress/screenshots
