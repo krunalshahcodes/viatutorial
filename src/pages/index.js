@@ -1,5 +1,12 @@
 import React from 'react'
+import { Container, Layout } from '../components'
 
-export default function Home() {
-  return <div>Hello world!</div>
+const Homepage = ({ location }) => {
+  return (
+    <Layout pathname={location.pathname}>
+      <Container>Home</Container>
+    </Layout>
+  )
 }
+
+export default Homepage
