@@ -5,7 +5,7 @@ import Container from './Container'
 
 const Footer = () => {
   return (
-    <Container align="center" justify="center" paddingY={4}>
+    <Container align="center" justify="center" paddingY={4} textAlign="center">
       <Text>Code snippets licensed under MIT, unless otherwise noted.</Text>
       <Text>
         &copy; 2020{' '}
