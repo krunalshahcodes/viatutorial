@@ -5,7 +5,13 @@ import Container from './Container'
 
 const Footer = () => {
   return (
-    <Container align="center" justify="center" paddingY={4} textAlign="center">
+    <Container
+      align="center"
+      justify="center"
+      paddingY={4}
+      textAlign="center"
+      marginTop={12}
+    >
       <Text>Code snippets licensed under MIT, unless otherwise noted.</Text>
       <Text>
         &copy; 2020{' '}

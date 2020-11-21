@@ -4,19 +4,20 @@ import { Helmet } from 'react-helmet'
 
 const Head = ({ data, pathname, tutorial, postNode }) => {
   const { config } = data.site
+  const URL = `${config.siteUrl}${pathname}`
 
   let title
   let description
   let image
 
   if (tutorial) {
-    title = `${postNode.frontmatter.title} – ${config.siteName}`
-    description = postNode.frontmatter.description
-      ? postNode.frontmatter.description
+    title = `${postNode.fields.title} – ${config.siteName}`
+    description = postNode.fields.description
+      ? postNode.fields.description
       : postNode.excerpt
     image = `${config.siteUrl}${
-      postNode.frontmatter.banner
-        ? postNode.frontmatter.banner.childImageSharp.fluid.src
+      postNode.fields.banner
+        ? postNode.fields.banner.childImageSharp.fluid.src
         : ''
     }`
   } else {
