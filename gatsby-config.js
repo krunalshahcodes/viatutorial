@@ -1,6 +1,15 @@
 const path = require('path')
+const config = require('./src/common/config')
 
 module.exports = {
+  siteMetadata: {
+    siteTitle: config.siteTitle,
+    siteDescription: config.siteDescription,
+    siteShortName: config.siteShortName,
+    siteUrl: config.siteUrl,
+    twitter: config.twitter,
+    facebook: config.facebook,
+  },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
@@ -22,6 +31,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
+        host: config.siteUrl,
         policy: [{ userAgent: '*', disallow: '/' }],
       },
     },
