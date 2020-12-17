@@ -17,10 +17,11 @@ export const MenuItem = ({ to, children, ...props }) => (
     as={Link}
     to={to}
     display="block"
-    paddingX={{ base: 0, md: 4 }}
+    paddingX={{ base: 0, md: 3 }}
     paddingY={{ base: 2, md: 0 }}
     fontWeight="bold"
     boxShadow="none"
+    fontSize={16}
     _hover={{
       color: 'green.500',
     }}
@@ -55,8 +56,8 @@ const Navigation = ({ ...props }) => {
             to="/"
             color="green.600"
             paddingY={4}
-            fontSize={20}
-            fontWeight="black"
+            fontSize={24}
+            fontWeight="bold"
             marginRight={{ base: 0, md: 4 }}
             boxShadow="none"
             _hover={{}}

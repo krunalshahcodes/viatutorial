@@ -24,6 +24,12 @@ module.exports = {
         extensions: [`.mdx`, `.md`],
       },
     },
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`,
+      },
+    },
     `@chakra-ui/gatsby-plugin`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
